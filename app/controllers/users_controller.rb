@@ -35,6 +35,10 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @userjoined = @user.name + @user.email
+    respond_to do |format|
+      format.html
+    end
   end
 
   # POST /users
