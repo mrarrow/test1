@@ -1,0 +1,2 @@
+class MortgageController < ApplicationController
+end
