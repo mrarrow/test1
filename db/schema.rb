@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110424094041) do
 
   create_table "mortgages", :force => true do |t|
+    t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -22,9 +23,9 @@ ActiveRecord::Schema.define(:version => 20110424094041) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "principal"
-    t.integer  "term"
-    t.integer  "interest_rate"
+    t.decimal  "principal",     :default => 100.0
+    t.decimal  "term",          :default => 200.0
+    t.decimal  "interest_rate", :default => 300.0
   end
 
 end

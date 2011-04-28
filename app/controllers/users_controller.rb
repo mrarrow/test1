@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -36,6 +35,16 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @userjoined = @user.name + @user.email
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def graph
+	@user = User.find(params[:id])
+    @h = LazyHighCharts::HighChart.new('bar') do |f|
+      f.series(:name=>@user.email, :data=>[@user.principal.to_int, @user.interest_rate.to_int])
+    end
     respond_to do |format|
       format.html
     end
@@ -83,5 +92,21 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def monthly_pmt (user)
+    @a = user.principal
+    @a.to_s
+    Decimal(@a.to_s)
+
+  end
+
+  def analysis
+    @user = User.find(params[:id])
+    @monthly_pmt = monthly_pmt (@user)
+    respond_to do |format|
+          format.html
+    end
+
   end
 end

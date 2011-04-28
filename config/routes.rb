@@ -1,5 +1,7 @@
 Test1::Application.routes.draw do
   resources :users
+  match "graph/:id" => "users#graph"
+  match "analysis/:id" => "users#analysis"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -31,3 +31,15 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 #for delayed jobs
 gem 'delayed_job'
+
+#for decimal
+gem 'decimal'
+
+#for high charts
+gem 'lazy_high_charts'
+
+#test to see if this stackoverflow idea works
+gem 'jquery-rails', '>= 0.2.6'
+
+#for authentication
+gem 'devise'
