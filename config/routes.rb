@@ -1,6 +1,9 @@
 Test1::Application.routes.draw do
+  devise_for :models
+
+
   resources :users
-  match "graph/:id" => "users#graph"
+  match "users/:id/graph" => "users#graph"
   match "analysis/:id" => "users#analysis"
 
   # The priority is based upon order of creation:
@@ -52,7 +55,7 @@ Test1::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "users#index"
 
   # See how all your routes lay out with "rake routes"
 

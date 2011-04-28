@@ -10,7 +10,11 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+  <%  if model_signed_in? %>
+    Hello <%= current_model.email %>
+  <% else %>
+    Not signed in! <%= link_to "sign in", new_model_session_path %>
+  <% end %>
 <%= yield %>
 
 </body>
